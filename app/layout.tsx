@@ -6,13 +6,13 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "sw
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk", display: "swap" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://your-portfolio.vercel.app"),
+  metadataBase: new URL("https://debela-girma-portfolio.vercel.app"),
   title: {
-    default: "Your Name — Full-Stack Freelance Developer",
-    template: "%s | Your Name"
+    default: "Debela Girma — Full-Stack Freelance Developer",
+    template: "%s | Debela Girma"
   },
   description:
-    "A modern portfolio for a freelance full-stack developer building scalable APIs, resilient databases, and polished web applications.",
+    "A modern portfolio for a freelance full-stack developer building scalable APIs, resilient databases, and polished web applications with TypeScript and modern web technologies.",
   keywords: [
     "freelance developer",
     "full-stack developer",
@@ -20,22 +20,23 @@ export const metadata: Metadata = {
     "TypeScript developer",
     "backend developer",
     "API development",
-    "database architecture"
+    "database architecture",
+    "Debela Girma"
   ],
-  authors: [{ name: "Your Name" }],
-  creator: "Your Name",
+  authors: [{ name: "Debela Girma" }],
+  creator: "Debela Girma",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://your-portfolio.vercel.app",
-    siteName: "Your Name Portfolio",
-    title: "Your Name — Full-Stack Freelance Developer",
+    url: "https://debela-girma-portfolio.vercel.app",
+    siteName: "Debela Girma Portfolio",
+    title: "Debela Girma — Full-Stack Freelance Developer",
     description:
       "Scalable systems, clean interfaces, and production-ready delivery for ambitious freelance projects."
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your Name — Full-Stack Freelance Developer",
+    title: "Debela Girma — Full-Stack Freelance Developer",
     description: "Full-stack development for scalable systems, APIs, and polished web products."
   },
   robots: {
