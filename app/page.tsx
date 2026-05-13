@@ -2,14 +2,14 @@ import Image from "next/image";
 import { AnimatedCard } from "@/components/animated-card";
 import { ContactForm } from "@/components/contact-form";
 import { Section } from "@/components/section";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { navItems, projects, services, skillCategories } from "@/lib/data";
+import { projects, services, skillCategories } from "@/lib/data";
 import { Hero } from "@/components/hero";
+import { SiteHeader } from "@/components/site-header";
 
 export default function Home() {
   return (
     <main className="relative overflow-hidden text-slate-950 transition-colors dark:text-white">
-      <Header />
+      <SiteHeader />
       <Hero />
       <About />
       <Skills />
@@ -21,33 +21,6 @@ export default function Home() {
   );
 }
 
-function Header() {
-  return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/75 backdrop-blur-xl dark:border-white/10 dark:bg-ink/70">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8" aria-label="Primary navigation">
-        <a href="#top" className="font-display text-lg font-semibold tracking-tight text-slate-950 dark:text-white" aria-label="Your Name home">
-          Your<span className="text-sky-300">Name</span>
-        </a>
-        <div className="hidden items-center gap-7 md:flex">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="text-sm font-medium text-slate-600 transition hover:text-slate-950 dark:text-slate-300 dark:hover:text-white">
-              {item.label}
-            </a>
-          ))}
-        </div>
-        <div className="flex items-center gap-3">
-          <ThemeToggle />
-          <a
-          href="#contact"
-          className="rounded-full border border-sky-400/50 px-4 py-2 text-sm font-semibold text-sky-700 transition hover:border-sky-500 hover:bg-sky-100 dark:border-sky-300/40 dark:text-sky-200 dark:hover:border-sky-200 dark:hover:bg-sky-300/10 dark:hover:text-white"
-        >
-          Hire Me
-          </a>
-        </div>
-      </nav>
-    </header>
-  );
-}
 
 function About() {
   return (

@@ -8,12 +8,13 @@ A modern, animated, production-ready personal portfolio website for a freelance 
 app/
   globals.css        Global styles, Tailwind layers, smooth scrolling, dark/light theme surfaces
   layout.tsx         SEO metadata, fonts, theme boot script, root layout, viewport settings
-  page.tsx           Main page sections, navigation, portfolio layout composition
+  page.tsx           Main page sections and portfolio layout composition
 components/
   animated-card.tsx  Reusable staggered card reveal animation
   contact-form.tsx   Accessible animated contact form
   hero.tsx           Animated hero with rotating role text, CTA micro-interactions, profile image slot
   section.tsx        Reusable reveal-on-scroll section wrapper
+  site-header.tsx    Responsive sticky header with desktop nav and mobile menu
   theme-provider.tsx Dark/light theme state and localStorage persistence
   theme-toggle.tsx   Animated dark/light theme switcher
 lib/
@@ -42,6 +43,10 @@ Open `http://localhost:3000` to view the site locally.
 ## Theme
 
 The site defaults to dark mode, includes a polished light mode, and stores the visitor's preference in `localStorage`. The toggle lives in the sticky navigation.
+
+## Mobile Navigation
+
+The header uses the full navigation on tablet/desktop and switches to a compact mobile bar with a hamburger menu on small screens. The mobile menu includes About, Skills, Projects, Services, Contact, and a Hire Me CTA so the section links are usable on phones.
 
 ## Production Build
 
