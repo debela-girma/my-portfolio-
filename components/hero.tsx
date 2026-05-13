@@ -45,7 +45,7 @@ export function Hero() {
             Available for high-impact freelance projects
           </motion.p>
           <motion.h1 variants={item} className="font-display text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
-            Your Name
+            Debela Girma
             <span className="block bg-gradient-to-r from-sky-200 via-white to-violet-200 bg-clip-text text-transparent">
               builds systems that feel effortless.
             </span>
@@ -56,7 +56,7 @@ export function Hero() {
             <RotatingRole />
           </motion.div>
           <motion.p variants={item} className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
-            I design and develop scalable web products for founders, teams, and service businesses that need more than a pretty interface: clean architecture, reliable data flow, and a polished user experience ready for real users.
+            I design and develop scalable web products for founders, teams, and service businesses that need more than a pretty interface: clean architecture, reliable data flow, and a polished user experience built with TypeScript and modern frameworks.
           </motion.p>
           <motion.div variants={item} className="mt-10 flex flex-col gap-4 sm:flex-row">
             <motion.a
@@ -87,7 +87,7 @@ export function Hero() {
             </div>
             <div className="space-y-4 font-mono text-sm text-slate-300">
               <CodeLine color="text-sky-300" text="const developer = {" />
-              <CodeLine indent color="text-violet-300" text="name: 'Your Name'," />
+              <CodeLine indent color="text-violet-300" text="name: 'Debela Girma'," />
               <CodeLine indent color="text-emerald-300" text="focus: ['APIs', 'Databases', 'UX']," />
               <CodeLine indent color="text-amber-200" text="delivery: 'production-ready'," />
               <CodeLine color="text-sky-300" text="};" />
