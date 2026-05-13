@@ -1,18 +1,19 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk", display: "swap" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://debela-girma-portfolio.vercel.app"),
+  metadataBase: new URL("https://your-portfolio.vercel.app"),
   title: {
-    default: "Debela Girma — Full-Stack Freelance Developer",
-    template: "%s | Debela Girma"
+    default: "Your Name — Full-Stack Freelance Developer",
+    template: "%s | Your Name"
   },
   description:
-    "A modern portfolio for a freelance full-stack developer building scalable APIs, resilient databases, and polished web applications with TypeScript and modern web technologies.",
+    "A modern portfolio for a freelance full-stack developer building scalable APIs, resilient databases, and polished web applications.",
   keywords: [
     "freelance developer",
     "full-stack developer",
@@ -20,23 +21,22 @@ export const metadata: Metadata = {
     "TypeScript developer",
     "backend developer",
     "API development",
-    "database architecture",
-    "Debela Girma"
+    "database architecture"
   ],
-  authors: [{ name: "Debela Girma" }],
-  creator: "Debela Girma",
+  authors: [{ name: "Your Name" }],
+  creator: "Your Name",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://debela-girma-portfolio.vercel.app",
-    siteName: "Debela Girma Portfolio",
-    title: "Debela Girma — Full-Stack Freelance Developer",
+    url: "https://your-portfolio.vercel.app",
+    siteName: "Your Name Portfolio",
+    title: "Your Name — Full-Stack Freelance Developer",
     description:
       "Scalable systems, clean interfaces, and production-ready delivery for ambitious freelance projects."
   },
   twitter: {
     card: "summary_large_image",
-    title: "Debela Girma — Full-Stack Freelance Developer",
+    title: "Your Name — Full-Stack Freelance Developer",
     description: "Full-stack development for scalable systems, APIs, and polished web products."
   },
   robots: {
@@ -53,13 +53,29 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#05070d",
-  colorScheme: "dark"
+  colorScheme: "dark light"
 };
+
+const themeScript = `
+  (() => {
+    try {
+      const savedTheme = localStorage.getItem('portfolio-theme');
+      const theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+      document.documentElement.classList.remove(theme === 'dark' ? 'light' : 'dark');
+      document.documentElement.classList.add(theme);
+    } catch (_) {
+      document.documentElement.classList.add('dark');
+    }
+  })();
+`;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} dark`} suppressHydrationWarning>
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

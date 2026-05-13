@@ -32,7 +32,7 @@ export const skillCategories: SkillCategory[] = [
   {
     title: "Languages",
     summary: "Strong foundations for solving performance, architecture, and product problems.",
-    skills: ["TypeScript", "JavaScript", "C++", "SQL"],
+    skills: ["C++", "Java", "TypeScript", "SQL"],
     accent: "from-sky-400 to-cyan-300"
   },
   {
@@ -62,16 +62,16 @@ export const projects: Project[] = [
       "A secure analytics dashboard that turns scattered operational data into focused decisions with role-based access, KPI cards, and export-ready reporting.",
     stack: ["Next.js", "TypeScript", "MySQL", "Tailwind"],
     image: "/projects/dashboard.svg",
-    github: "https://github.com/debela-girma/client-operations-dashboard",
+    github: "https://github.com/yourname/client-operations-dashboard",
     demo: "https://client-operations-demo.vercel.app"
   },
   {
     title: "API Booking Platform",
     description:
       "A resilient backend and polished booking flow for service businesses, including availability rules, transactional records, and clear customer communication.",
-    stack: ["Node.js", "REST API", "TypeScript", "MySQL"],
+    stack: ["Node.js", "REST API", "Java", "MySQL"],
     image: "/projects/booking.svg",
-    github: "https://github.com/debela-girma/api-booking-platform",
+    github: "https://github.com/yourname/api-booking-platform",
     demo: "https://booking-platform-demo.vercel.app"
   },
   {
@@ -80,7 +80,7 @@ export const projects: Project[] = [
       "A conversion-focused marketing site system with reusable sections, fast page loads, animated proof points, and a maintainable content structure.",
     stack: ["Next.js", "Framer Motion", "TypeScript", "Vercel"],
     image: "/projects/saas.svg",
-    github: "https://github.com/debela-girma/saas-landing-system",
+    github: "https://github.com/yourname/saas-landing-system",
     demo: "https://saas-landing-system.vercel.app"
   }
 ];

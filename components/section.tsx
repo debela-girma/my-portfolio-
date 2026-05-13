@@ -29,9 +29,9 @@ export function Section({ id, eyebrow, title, description, children }: SectionPr
       variants={reveal}
     >
       <div className="mb-12 max-w-3xl">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-sky-300">{eyebrow}</p>
-        <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-5xl">{title}</h2>
-        {description ? <p className="mt-5 text-lg leading-8 text-slate-300">{description}</p> : null}
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-sky-600 dark:text-sky-300">{eyebrow}</p>
+        <h2 className="font-display text-3xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-5xl">{title}</h2>
+        {description ? <p className="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">{description}</p> : null}
       </div>
       {children}
     </motion.section>
