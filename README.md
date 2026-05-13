@@ -14,7 +14,7 @@ components/
   contact-form.tsx   Accessible animated contact form
   hero.tsx           Animated hero with rotating role text, CTA micro-interactions, profile image slot
   section.tsx        Reusable reveal-on-scroll section wrapper
-  site-header.tsx    Responsive sticky header with desktop nav and mobile menu
+  site-header.tsx    Responsive sticky header with always-visible desktop and mobile nav
   theme-provider.tsx Dark/light theme state and localStorage persistence
   theme-toggle.tsx   Animated dark/light theme switcher
 lib/
@@ -46,7 +46,7 @@ The site defaults to dark mode, includes a polished light mode, and stores the v
 
 ## Mobile Navigation
 
-The header uses the full navigation on tablet/desktop and switches to a compact mobile bar with a hamburger menu on small screens. The mobile menu includes About, Skills, Projects, Services, Contact, and a Hire Me CTA so the section links are usable on phones.
+The header keeps About, Skills, Projects, Services, and Contact visible on every screen size. Desktop shows the links across the top bar, while mobile uses a fixed floating two-line header with compact pill links that stay available while scrolling.
 
 ## Production Build
 

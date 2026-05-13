@@ -24,7 +24,7 @@ const item: Variants = {
 
 export function Hero() {
   return (
-    <section id="top" className="relative flex min-h-screen items-center overflow-hidden px-6 pt-28 lg:px-8">
+    <section id="top" className="relative flex min-h-screen items-center overflow-hidden px-6 pt-44 sm:pt-36 lg:px-8 lg:pt-28">
       <motion.div
         aria-hidden="true"
         className="animated-grid absolute inset-0 opacity-70"

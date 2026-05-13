@@ -21,7 +21,7 @@ export function Section({ id, eyebrow, title, description, children }: SectionPr
   return (
     <motion.section
       id={id}
-      className="mx-auto w-full max-w-7xl px-6 py-20 sm:py-24 lg:px-8"
+      className="mx-auto w-full max-w-7xl scroll-mt-40 px-6 py-20 sm:scroll-mt-32 sm:py-24 lg:px-8"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.18 }}
