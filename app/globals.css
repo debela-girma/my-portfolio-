@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --background: #f7fafc;
+  --foreground: #0f172a;
+}
+
+:root.dark {
+  color-scheme: dark;
+  --background: #05070d;
+  --foreground: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 16% 8%, rgba(14, 165, 233, 0.16), transparent 30rem),
+    radial-gradient(circle at 85% 3%, rgba(168, 85, 247, 0.13), transparent 28rem),
+    linear-gradient(180deg, #f8fafc 0%, #eef7ff 42%, #ffffff 100%);
+  color: var(--foreground);
+}
+
+:root.dark body {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(14, 165, 233, 0.16), transparent 30rem),
+    radial-gradient(circle at 80% 0%, rgba(168, 85, 247, 0.12), transparent 28rem),
+    #05070d;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.35);
+  color: #ffffff;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass-panel {
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(241, 245, 249, 0.66));
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
+    backdrop-filter: blur(18px);
+  }
+
+  :root.dark .glass-panel {
+    border-color: rgba(148, 163, 184, 0.18);
+    background: linear-gradient(145deg, rgba(15, 23, 42, 0.78), rgba(2, 6, 23, 0.54));
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  }
+
+  .animated-grid {
+    background-image:
+      linear-gradient(rgba(15, 23, 42, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.07) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(circle at 50% 30%, black, transparent 72%);
+  }
+
+  :root.dark .animated-grid {
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  }
+}
