@@ -1,53 +1,43 @@
 import type { Metadata, Viewport } from "next";
-import { siteConfig } from "@/lib/data";
+import { Inter, Space_Grotesk } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk", display: "swap" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL("https://your-portfolio.vercel.app"),
   title: {
-    default: `${siteConfig.name} — Software Engineer & Builder`,
-    template: `%s | ${siteConfig.name}`
+    default: "Your Name — Full-Stack Freelance Developer",
+    template: "%s | Your Name"
   },
   description:
-    "Premium founder-style portfolio for a product-minded software engineer building scalable web applications, APIs, databases, and MVPs.",
+    "A modern portfolio for a freelance full-stack developer building scalable APIs, resilient databases, and polished web applications.",
   keywords: [
-    "software engineer portfolio",
-    "startup founder portfolio",
+    "freelance developer",
+    "full-stack developer",
     "Next.js developer",
     "TypeScript developer",
-    "full-stack developer",
-    "MVP development",
+    "backend developer",
     "API development",
     "database architecture"
   ],
-  authors: [{ name: siteConfig.name }],
-  creator: siteConfig.name,
-  alternates: {
-    canonical: "/"
-  },
+  authors: [{ name: "Your Name" }],
+  creator: "Your Name",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteConfig.url,
-    siteName: `${siteConfig.name} Portfolio`,
-    title: `${siteConfig.name} — Building software that solves real problems`,
+    url: "https://your-portfolio.vercel.app",
+    siteName: "Your Name Portfolio",
+    title: "Your Name — Full-Stack Freelance Developer",
     description:
-      "Founder-style personal brand site for a software engineer focused on thoughtful engineering, modern web technologies, and useful products.",
-    images: [
-      {
-        url: "/profile-placeholder.svg",
-        width: 1200,
-        height: 630,
-        alt: `${siteConfig.name} portfolio preview`
-      }
-    ]
+      "Scalable systems, clean interfaces, and production-ready delivery for ambitious freelance projects."
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Software Engineer & Builder`,
-    description: "Scalable digital products, APIs, database architecture, and MVP development for founders and businesses.",
-    images: ["/profile-placeholder.svg"]
+    title: "Your Name — Full-Stack Freelance Developer",
+    description: "Full-stack development for scalable systems, APIs, and polished web products."
   },
   robots: {
     index: true,
@@ -63,13 +53,29 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#05070d",
-  colorScheme: "dark"
+  colorScheme: "dark light"
 };
+
+const themeScript = `
+  (() => {
+    try {
+      const savedTheme = localStorage.getItem('portfolio-theme');
+      const theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+      document.documentElement.classList.remove(theme === 'dark' ? 'light' : 'dark');
+      document.documentElement.classList.add(theme);
+    } catch (_) {
+      document.documentElement.classList.add('dark');
+    }
+  })();
+`;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="dark">
-      <body>{children}</body>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} dark`} suppressHydrationWarning>
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

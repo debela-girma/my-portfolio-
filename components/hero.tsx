@@ -1,14 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { useEffect, useState } from "react";
-import { Icon } from "@/components/icons";
-import { MagneticButton } from "@/components/magnetic-button";
-import { siteConfig } from "@/lib/data";
 
-const roles = ["Developer", "Builder", "Future Founder"];
+const roles = ["Full-Stack Developer", "Problem Solver", "Freelance Ready"];
+
+// Replace this path with your own file, for example: /your-photo.jpg in the public folder.
 const profileImage = "/profile-placeholder.svg";
 
 const container: Variants = {
@@ -21,92 +19,93 @@ const container: Variants = {
 
 const item: Variants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.72, ease: [0.22, 1, 0.36, 1] } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }
 };
 
 export function Hero() {
   return (
-    <section id="top" className="relative flex min-h-screen items-center overflow-hidden px-6 pt-36 lg:px-8">
+    <section id="top" className="relative flex min-h-screen items-center overflow-hidden px-6 pt-44 sm:pt-36 lg:px-8 lg:pt-28">
       <motion.div
         aria-hidden="true"
         className="animated-grid absolute inset-0 opacity-70"
-        animate={{ backgroundPosition: ["0px 0px", "64px 64px"] }}
-        transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+        animate={{ backgroundPosition: ["0px 0px", "56px 56px"] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
       />
       <motion.div
         aria-hidden="true"
-        className="absolute left-1/2 top-20 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-sky-400/14 blur-3xl"
-        animate={{ scale: [1, 1.14, 1], opacity: [0.42, 0.75, 0.42] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        aria-hidden="true"
-        className="absolute right-[-10rem] top-24 h-[30rem] w-[30rem] rounded-full bg-violet-500/12 blur-3xl"
-        animate={{ x: [0, -32, 0], y: [0, 28, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-sky-400/20 blur-3xl sm:h-96 sm:w-96"
+        animate={{ scale: [1, 1.12, 1], opacity: [0.45, 0.7, 0.45] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <motion.div
-        className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 py-20 lg:grid-cols-[1.08fr_0.92fr]"
+        className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 py-20 lg:grid-cols-[1.02fr_0.98fr]"
         variants={container}
         initial="hidden"
         animate="visible"
       >
         <div>
-          <motion.p variants={item} className="inline-flex items-center gap-2 rounded-full border border-emerald-300/30 bg-emerald-300/10 px-4 py-2 text-sm font-semibold text-emerald-100 shadow-[0_0_40px_rgba(52,211,153,0.14)]">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-300" />
-            </span>
-            Available for freelance opportunities
+          <motion.p variants={item} className="mb-5 inline-flex rounded-full border border-sky-300/40 bg-sky-100/80 px-4 py-2 text-sm font-semibold text-sky-700 shadow-glow dark:bg-sky-300/10 dark:text-sky-200">
+            Available for high-impact freelance projects
           </motion.p>
-
-          <motion.div variants={item} className="mt-8 flex flex-wrap items-center gap-3 text-sm font-semibold uppercase tracking-[0.28em] text-slate-400">
-            <span>{siteConfig.role}</span>
-            <span className="text-sky-300">/</span>
+          <motion.h1 variants={item} className="font-display text-5xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-6xl lg:text-7xl">
+            Your Name
+            <span className="block bg-gradient-to-r from-sky-600 via-slate-950 to-violet-600 bg-clip-text text-transparent dark:from-sky-200 dark:via-white dark:to-violet-200">
+              builds systems that feel effortless.
+            </span>
+          </motion.h1>
+          <motion.div variants={item} className="mt-6 flex flex-wrap items-center gap-3 text-lg font-medium text-slate-700 dark:text-slate-300 sm:text-xl">
+            <span>Full-Stack Developer</span>
+            <span className="text-sky-500 dark:text-sky-300">|</span>
             <RotatingRole />
           </motion.div>
-
-          <motion.h1 variants={item} className="mt-5 max-w-5xl text-balance font-display text-5xl font-semibold tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl xl:text-8xl">
-            Building software that solves real problems.
-          </motion.h1>
-
-          <motion.p variants={item} className="mt-7 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl sm:leading-9">
-            I help businesses and founders transform ideas into scalable digital products through thoughtful engineering and modern web technologies.
+          <motion.p variants={item} className="mt-7 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+            I design and develop scalable web products for founders, teams, and service businesses that need more than a pretty interface: clean architecture, reliable data flow, and a polished user experience ready for real users.
           </motion.p>
-
           <motion.div variants={item} className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <MagneticButton href="#projects">
-              View Work
-              <Icon name="arrow-up-right" className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </MagneticButton>
-            <MagneticButton href="#contact" variant="secondary">
-              Let&apos;s Build Together
-              <Icon name="rocket" className="h-4 w-4" />
-            </MagneticButton>
-          </motion.div>
-
-          <motion.div variants={item} className="mt-8 flex flex-wrap items-center gap-3 text-sm text-slate-400">
-            <SocialLink href={siteConfig.github} label="GitHub" icon="github" />
-            <SocialLink href={siteConfig.linkedin} label="LinkedIn" icon="linkedin" />
-            <SocialLink href={`mailto:${siteConfig.email}`} label="Email" icon="mail" />
+            <motion.a
+              href="#projects"
+              className="rounded-2xl bg-sky-400 px-6 py-4 text-center font-semibold text-slate-950 shadow-glow transition hover:bg-sky-300 dark:bg-sky-300 dark:hover:bg-sky-200"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              View Projects
+            </motion.a>
+            <motion.a
+              href="#contact"
+              className="rounded-2xl border border-slate-300 bg-white/70 px-6 py-4 text-center font-semibold text-slate-950 shadow-sm transition hover:border-sky-400 hover:bg-sky-50 hover:shadow-glow dark:border-white/15 dark:bg-white/[0.04] dark:text-white dark:hover:border-sky-300/50 dark:hover:bg-sky-300/10"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Hire Me
+            </motion.a>
           </motion.div>
         </div>
 
-        <motion.div variants={item} className="relative mx-auto w-full max-w-[33rem]">
-          <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-sky-300/25 via-violet-300/15 to-transparent blur-2xl" aria-hidden="true" />
-          <div className="glass-panel relative overflow-hidden rounded-[2rem] p-3">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950/80">
-              <Image src={profileImage} alt="Professional portrait placeholder" fill priority sizes="(min-width: 1024px) 33rem, 90vw" className="object-cover opacity-90 transition duration-700 hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-200">Founder-grade portfolio</p>
-                <p className="mt-2 max-w-sm font-display text-2xl font-semibold text-white">Replace this portrait with your own image before launch.</p>
+        <motion.div variants={item} className="relative mx-auto w-full max-w-[34rem]">
+          <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-sky-300/30 via-violet-300/20 to-transparent blur-2xl dark:from-sky-400/25 dark:via-violet-500/20" aria-hidden="true" />
+          <div className="glass-panel relative overflow-hidden rounded-[2rem] p-4">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] border border-white/40 bg-slate-100 dark:border-white/10 dark:bg-slate-950/80">
+              <Image
+                src={profileImage}
+                alt="Portrait placeholder for Your Name"
+                fill
+                priority
+                sizes="(min-width: 1024px) 34rem, 90vw"
+                className="object-cover transition duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-transparent p-6 text-white">
+                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-200">Your photo goes here</p>
+                <p className="mt-2 font-display text-2xl font-semibold">Replace `/public/profile-placeholder.svg` with your image.</p>
               </div>
             </div>
           </div>
-          <FloatingBadge className="-left-2 bottom-8" icon="zap" title="Fast shipping" />
-          <FloatingBadge className="-right-3 top-10" icon="badge-check" title="Product-minded" />
+          <div className="absolute -bottom-5 left-4 rounded-2xl border border-emerald-300/35 bg-white/85 px-5 py-4 text-sm font-semibold text-emerald-700 shadow-premium backdrop-blur dark:bg-emerald-300/10 dark:text-emerald-200">
+            Lighthouse-minded builds
+          </div>
+          <div className="absolute -right-3 top-8 rounded-2xl border border-sky-300/35 bg-white/85 px-4 py-3 text-sm font-semibold text-sky-700 shadow-premium backdrop-blur dark:bg-sky-300/10 dark:text-sky-200">
+            Open to freelance work
+          </div>
         </motion.div>
       </motion.div>
     </section>
@@ -114,48 +113,18 @@ export function Hero() {
 }
 
 function RotatingRole() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = window.setInterval(() => setIndex((current) => (current + 1) % roles.length), 2200);
-    return () => window.clearInterval(interval);
-  }, []);
-
   return (
-    <span className="inline-flex min-w-[10rem] text-sky-200">
-      <AnimatePresence mode="wait">
+    <span className="relative inline-flex h-8 min-w-44 overflow-hidden text-sky-600 dark:text-sky-200">
+      {roles.map((role, index) => (
         <motion.span
-          key={roles[index]}
-          initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          exit={{ opacity: 0, y: -12, filter: "blur(6px)" }}
-          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          key={role}
+          className="absolute left-0 top-0"
+          animate={{ y: [28, 0, 0, -28], opacity: [0, 1, 1, 0] }}
+          transition={{ duration: 6, repeat: Infinity, delay: index * 2, times: [0, 0.12, 0.72, 1] }}
         >
-          {roles[index]}
+          {role}
         </motion.span>
-      </AnimatePresence>
+      ))}
     </span>
-  );
-}
-
-function SocialLink({ href, label, icon }: { href: string; label: string; icon: "github" | "linkedin" | "mail" }) {
-  return (
-    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 transition hover:border-sky-300/40 hover:bg-sky-300/10 hover:text-white">
-      <Icon name={icon} className="h-4 w-4" />
-      {label}
-    </a>
-  );
-}
-
-function FloatingBadge({ className, icon, title }: { className: string; icon: "zap" | "badge-check"; title: string }) {
-  return (
-    <motion.div
-      className={`absolute hidden items-center gap-2 rounded-2xl border border-white/12 bg-slate-950/80 px-4 py-3 text-sm font-semibold text-white shadow-premium backdrop-blur-xl sm:flex ${className}`}
-      animate={{ y: [0, -8, 0] }}
-      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-    >
-      <Icon name={icon} className="h-4 w-4 text-sky-200" />
-      {title}
-    </motion.div>
   );
 }

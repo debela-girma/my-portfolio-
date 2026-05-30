@@ -1,15 +1,3 @@
-export type NavItem = {
-  label: string;
-  href: string;
-};
-
-export type TrustMetric = {
-  label: string;
-  value: number;
-  suffix?: string;
-  description: string;
-};
-
 export type SkillCategory = {
   title: string;
   summary: string;
@@ -19,10 +7,7 @@ export type SkillCategory = {
 
 export type Project = {
   title: string;
-  category: string;
-  challenge: string;
-  solution: string;
-  outcome: string;
+  description: string;
   stack: string[];
   image: string;
   github: string;
@@ -32,84 +17,40 @@ export type Project = {
 export type Service = {
   title: string;
   description: string;
-  outcome: string;
-  icon: "app" | "api" | "database" | "frontend" | "mvp";
+  icon: string;
 };
 
-export type BuildNowItem = {
-  label: string;
-  title: string;
-  description: string;
-};
-
-export const siteConfig = {
-  name: "Your Name",
-  role: "Software Engineer & Builder",
-  url: "https://your-portfolio.vercel.app",
-  email: "hello@yourname.dev",
-  github: "https://github.com/yourname",
-  linkedin: "https://linkedin.com/in/yourname"
-};
-
-export const navItems: NavItem[] = [
+export const navItems = [
   { label: "About", href: "#about" },
-  { label: "Stack", href: "#skills" },
-  { label: "Work", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
   { label: "Services", href: "#services" },
-  { label: "Now", href: "#building-now" },
   { label: "Contact", href: "#contact" }
-];
-
-export const trustMetrics: TrustMetric[] = [
-  {
-    label: "Projects Built",
-    value: 12,
-    suffix: "+",
-    description: "Product interfaces, APIs, dashboards, and experiments shipped end-to-end."
-  },
-  {
-    label: "Technologies Mastered",
-    value: 14,
-    suffix: "+",
-    description: "Focused stack across systems, web, data, delivery, and deployment."
-  },
-  {
-    label: "Years Learning",
-    value: 4,
-    suffix: "+",
-    description: "Compound learning through C++, Java, databases, and modern web engineering."
-  },
-  {
-    label: "Problem-Solving Focus",
-    value: 100,
-    suffix: "%",
-    description: "Every build starts with the business outcome before the implementation details."
-  }
 ];
 
 export const skillCategories: SkillCategory[] = [
   {
     title: "Languages",
-    summary: "Foundational programming range for disciplined problem solving and maintainable product code.",
-    skills: ["C++", "Java", "TypeScript", "JavaScript"],
+    summary: "Strong foundations for solving performance, architecture, and product problems.",
+    skills: ["C++", "Java", "TypeScript", "SQL"],
     accent: "from-sky-400 to-cyan-300"
   },
   {
-    title: "Frontend",
-    summary: "Premium product interfaces that are responsive, accessible, fast, and built around reusable systems.",
-    skills: ["React", "Next.js", "Tailwind", "Framer Motion"],
+    title: "Backend",
+    summary: "Production APIs, authentication flows, integrations, and business logic built to scale.",
+    skills: ["Node.js", "REST APIs", "OOP Principles", "System Design"],
     accent: "from-violet-400 to-fuchsia-300"
   },
   {
-    title: "Backend",
-    summary: "Clear data flows, reliable API contracts, and system decisions that leave room for scale.",
-    skills: ["APIs", "Databases", "System Design", "MySQL"],
+    title: "Frontend",
+    summary: "Fast, accessible interfaces with clean component systems and persuasive UX.",
+    skills: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
     accent: "from-emerald-400 to-teal-300"
   },
   {
     title: "Tools",
-    summary: "Modern delivery workflow for version control, collaboration, deployments, and iteration velocity.",
-    skills: ["Git", "GitHub", "Vercel", "CI Ready"],
+    summary: "Reliable delivery workflows for shipping, debugging, and maintaining client projects.",
+    skills: ["Git", "MySQL", "Vercel", "CI/CD Ready"],
     accent: "from-amber-300 to-orange-400"
   }
 ];
@@ -117,10 +58,8 @@ export const skillCategories: SkillCategory[] = [
 export const projects: Project[] = [
   {
     title: "Client Operations Dashboard",
-    category: "B2B Analytics",
-    challenge: "Operators were making decisions from scattered spreadsheets and delayed reporting loops.",
-    solution: "Designed a secure dashboard with KPI cards, role-aware views, and export-ready reporting flows.",
-    outcome: "Created a single source of truth that makes the next decision visible within seconds.",
+    description:
+      "A secure analytics dashboard that turns scattered operational data into focused decisions with role-based access, KPI cards, and export-ready reporting.",
     stack: ["Next.js", "TypeScript", "MySQL", "Tailwind"],
     image: "/projects/dashboard.svg",
     github: "https://github.com/yourname/client-operations-dashboard",
@@ -128,21 +67,17 @@ export const projects: Project[] = [
   },
   {
     title: "API Booking Platform",
-    category: "Service Automation",
-    challenge: "A service business needed predictable booking logic without manual coordination overhead.",
-    solution: "Built an API-backed scheduling flow with availability rules, transactional records, and clean confirmations.",
-    outcome: "Reduced operational friction and gave customers a clearer path from interest to booking.",
-    stack: ["Java", "REST API", "MySQL", "React"],
+    description:
+      "A resilient backend and polished booking flow for service businesses, including availability rules, transactional records, and clear customer communication.",
+    stack: ["Node.js", "REST API", "Java", "MySQL"],
     image: "/projects/booking.svg",
     github: "https://github.com/yourname/api-booking-platform",
     demo: "https://booking-platform-demo.vercel.app"
   },
   {
     title: "SaaS Landing System",
-    category: "Go-To-Market",
-    challenge: "Early-stage product ideas needed credible marketing pages before the product was fully mature.",
-    solution: "Created a reusable landing system with modular sections, animated proof points, and fast deployment defaults.",
-    outcome: "Helped validate positioning quickly while preserving a polished brand experience.",
+    description:
+      "A conversion-focused marketing site system with reusable sections, fast page loads, animated proof points, and a maintainable content structure.",
     stack: ["Next.js", "Framer Motion", "TypeScript", "Vercel"],
     image: "/projects/saas.svg",
     github: "https://github.com/yourname/saas-landing-system",
@@ -152,56 +87,27 @@ export const projects: Project[] = [
 
 export const services: Service[] = [
   {
-    title: "Web Application Development",
-    description: "End-to-end web products with clean UX, reliable architecture, and production-ready delivery.",
-    outcome: "Turn an idea into a working product people can actually use.",
-    icon: "app"
+    title: "Backend Development",
+    description:
+      "Clean server-side foundations for products that need dependable business logic, maintainable structure, and room to grow.",
+    icon: "◇"
   },
   {
     title: "API Development",
-    description: "Thoughtful REST APIs with stable contracts, predictable errors, and integration-friendly structure.",
-    outcome: "Connect products, users, and data without brittle glue code.",
-    icon: "api"
+    description:
+      "Well-documented REST APIs with thoughtful data contracts, predictable error handling, and integration-friendly architecture.",
+    icon: "↔"
   },
   {
     title: "Database Architecture",
-    description: "MySQL schema design, relationships, indexing, and query patterns built for clarity and growth.",
-    outcome: "Give the product a data foundation that stays understandable over time.",
-    icon: "database"
+    description:
+      "MySQL schemas, relationships, indexing strategies, and query patterns designed for clarity, performance, and future features.",
+    icon: "▣"
   },
   {
-    title: "Frontend Engineering",
-    description: "Modern React and Next.js interfaces with premium interaction design and accessible components.",
-    outcome: "Make the product feel trustworthy before a user reads the copy.",
-    icon: "frontend"
-  },
-  {
-    title: "MVP Development",
-    description: "Focused first versions that prioritize learning velocity, core workflows, and launch momentum.",
-    outcome: "Ship the smallest serious product and use real feedback to decide what comes next.",
-    icon: "mvp"
-  }
-];
-
-export const buildingNow: BuildNowItem[] = [
-  {
-    label: "Learning",
-    title: "Systems that scale from simple foundations",
-    description: "Deepening backend architecture, API design, and database performance so early products do not inherit avoidable complexity."
-  },
-  {
-    label: "Side Projects",
-    title: "Founder tools for faster product validation",
-    description: "Exploring small SaaS utilities that help creators turn rough ideas into scoped experiments and launch-ready pages."
-  },
-  {
-    label: "Next Up",
-    title: "AI-assisted product workflows",
-    description: "Studying how modern AI interfaces can make software feel more adaptive without sacrificing trust, privacy, or control."
-  },
-  {
-    label: "Ambition",
-    title: "Build useful products with a durable business model",
-    description: "The long-term direction is simple: keep shipping, learn from real users, and compound technical taste into founder judgment."
+    title: "Frontend Web Development",
+    description:
+      "Responsive Next.js interfaces that feel premium, load quickly, and guide users toward the actions that matter most.",
+    icon: "✦"
   }
 ];
