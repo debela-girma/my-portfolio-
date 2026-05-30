@@ -1,48 +1,91 @@
 "use client";
 
-import { ThemeToggle } from "@/components/theme-toggle";
-import { navItems } from "@/lib/data";
+import { motion, useScroll } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Icon } from "@/components/icons";
+import { navItems, siteConfig } from "@/lib/data";
+
+function useActiveSection() {
+  const [active, setActive] = useState("#top");
+
+  useEffect(() => {
+    const sections = ["#top", ...navItems.map((item) => item.href)]
+      .map((id) => document.querySelector(id))
+      .filter((section): section is Element => Boolean(section));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible?.target.id) {
+          setActive(`#${visible.target.id}`);
+        }
+      },
+      { rootMargin: "-18% 0px -68% 0px", threshold: [0.1, 0.25, 0.5] }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  return active;
+}
 
 export function SiteHeader() {
+  const active = useActiveSection();
+  const { scrollY } = useScroll();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => scrollY.on("change", (latest) => setIsScrolled(latest > 18)), [scrollY]);
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/80 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-ink/75">
-      <nav className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8" aria-label="Primary navigation">
-        <div className="flex items-center justify-between gap-3">
-          <a href="#top" className="font-display text-lg font-semibold tracking-tight text-slate-950 dark:text-white" aria-label="Your Name home">
-            Your<span className="text-sky-300">Name</span>
-          </a>
+    <motion.header
+      className="fixed inset-x-0 top-4 z-50 px-4 sm:top-5"
+      initial={{ opacity: 0, y: -18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <nav
+        className={`mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-full border px-3 py-2 backdrop-blur-2xl transition duration-300 sm:px-4 ${
+          isScrolled
+            ? "border-white/15 bg-slate-950/72 shadow-[0_18px_70px_rgba(0,0,0,0.34)]"
+            : "border-white/10 bg-white/[0.05]"
+        }`}
+        aria-label="Primary navigation"
+      >
+        <a href="#top" className="group flex items-center gap-2 rounded-full px-2 py-1.5" aria-label={`${siteConfig.name} home`}>
+          <span className="grid h-8 w-8 place-items-center rounded-full bg-white text-slate-950 shadow-glow">
+            <Icon name="sparkles" className="h-4 w-4" />
+          </span>
+          <span className="hidden font-display text-sm font-semibold tracking-tight text-white sm:inline">{siteConfig.name}</span>
+        </a>
 
-          <div className="hidden items-center gap-7 md:flex">
-            {navItems.map((item) => (
-              <a key={item.href} href={item.href} className="text-sm font-medium text-slate-600 transition hover:text-slate-950 dark:text-slate-300 dark:hover:text-white">
-                {item.label}
+        <div className="hidden items-center gap-1 md:flex">
+          {navItems.map((item) => {
+            const isActive = active === item.href;
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`relative rounded-full px-3 py-2 text-sm font-medium transition ${isActive ? "text-white" : "text-slate-400 hover:text-white"}`}
+              >
+                {isActive ? <motion.span layoutId="active-nav" className="absolute inset-0 rounded-full bg-white/10" transition={{ type: "spring", stiffness: 380, damping: 34 }} /> : null}
+                <span className="relative">{item.label}</span>
               </a>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-2 sm:gap-3">
-            <ThemeToggle />
-            <a
-              href="#contact"
-              className="hidden rounded-full border border-sky-400/50 px-4 py-2 text-sm font-semibold text-sky-700 transition hover:border-sky-500 hover:bg-sky-100 dark:border-sky-300/40 dark:text-sky-200 dark:hover:border-sky-200 dark:hover:bg-sky-300/10 dark:hover:text-white sm:inline-flex"
-            >
-              Hire Me
-            </a>
-          </div>
+            );
+          })}
         </div>
 
-        <div className="mt-3 flex flex-wrap items-center justify-center gap-2 md:hidden" aria-label="Mobile section navigation">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="rounded-full border border-slate-200 bg-white/75 px-3 py-2 text-xs font-semibold text-slate-700 shadow-sm transition hover:border-sky-300 hover:bg-sky-50 hover:text-sky-700 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200 dark:hover:border-sky-300/50 dark:hover:bg-sky-300/10 dark:hover:text-sky-200"
-            >
-              {item.label}
-            </a>
-          ))}
-        </div>
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-2 rounded-full border border-sky-300/40 bg-sky-300/10 px-4 py-2 text-sm font-semibold text-sky-100 transition hover:border-sky-200 hover:bg-sky-300/20"
+        >
+          Build together
+          <Icon name="arrow-up-right" className="h-4 w-4" />
+        </a>
       </nav>
-    </header>
+    </motion.header>
   );
 }
