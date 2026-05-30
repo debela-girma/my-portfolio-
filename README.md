@@ -1,28 +1,50 @@
-# Freelance Developer Portfolio
+# Founder-Style Software Portfolio
 
-A modern, animated, production-ready personal portfolio website for a freelance full-stack developer. Built with Next.js App Router, TypeScript, Tailwind CSS, and Framer Motion.
+A premium, dark-first personal brand website for a product-minded software engineer. The site is designed to feel closer to a startup founder's personal homepage than a conventional developer portfolio: confident positioning, thoughtful product copy, smooth motion, and clear conversion paths.
 
-## Folder Structure
+## Complete Folder Structure
 
 ```text
 app/
-  globals.css        Global styles, Tailwind layers, smooth scrolling, dark/light theme surfaces
-  layout.tsx         SEO metadata, fonts, theme boot script, root layout, viewport settings
-  page.tsx           Main page sections and portfolio layout composition
+  globals.css             Global Tailwind layers, dark visual system, glass utilities, grid background
+  layout.tsx              Root layout, metadata, Open Graph, Twitter cards, viewport configuration
+  page.tsx                Main one-page portfolio composition and section content
+  robots.ts               Robots configuration for search crawlers
+  sitemap.ts              Sitemap generation for Vercel/Next.js
 components/
-  animated-card.tsx  Reusable staggered card reveal animation
-  contact-form.tsx   Accessible animated contact form
-  hero.tsx           Animated hero with rotating role text, CTA micro-interactions, profile image slot
-  section.tsx        Reusable reveal-on-scroll section wrapper
-  site-header.tsx    Responsive sticky header with always-visible desktop and mobile nav
-  theme-provider.tsx Dark/light theme state and localStorage persistence
-  theme-toggle.tsx   Animated dark/light theme switcher
+  animated-card.tsx       Reusable Framer Motion reveal/hover card
+  contact-form.tsx        Accessible animated inquiry form placeholder
+  counter.tsx             In-view animated metric counter
+  experience-effects.tsx  Reading progress indicator and cursor-follow glow
+  hero.tsx                Founder-style hero with rotating role text and aurora/grid background
+  icons.tsx               Local SVG icon system compatible with Lucide-style line icons
+  magnetic-button.tsx     Cursor-reactive CTA button component
+  section.tsx             Reusable scroll-reveal section wrapper
+  site-header.tsx         Floating glass navbar with active section indicator
+  theme-provider.tsx      Legacy theme provider retained for compatibility if light mode is reintroduced
+  theme-toggle.tsx        Legacy theme toggle retained for compatibility if light mode is reintroduced
 lib/
-  data.ts            Navigation, skills, project, and service content
+  data.ts                 Site config, navigation, trust metrics, skills, projects, services, now page content
 public/
-  profile-placeholder.svg  Replace this with your own portrait or profile image
-  projects/               Lightweight SVG project previews
+  profile-placeholder.svg Professional portrait placeholder
+  projects/
+    booking.svg           Project showcase placeholder
+    dashboard.svg         Project showcase placeholder
+    saas.svg              Project showcase placeholder
 ```
+
+## Tech Stack
+
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Custom Lucide-style SVG icon components
+- Responsive, dark-first design
+- Static sitemap and robots routes
+- Vercel-ready production build
+
+> Note: `package.json` targets Next.js 15, React 19, and `lucide-react` for the requested production stack. The current container already had Next.js 14 installed and blocked some package downloads from the registry, so validation ran against the installed dependency tree. Run `npm install` in your normal environment to refresh the lockfile and install the requested versions.
 
 ## Installation
 
@@ -31,41 +53,46 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000` to view the site locally.
-
-## Add Your Photo
-
-1. Add your image to the `public` folder, for example `public/my-photo.jpg`.
-2. Open `components/hero.tsx`.
-3. Change `const profileImage = "/profile-placeholder.svg";` to `const profileImage = "/my-photo.jpg";`.
-4. Keep the image optimized and ideally use a vertical portrait crop for the best result.
-
-## Theme
-
-The site defaults to dark mode, includes a polished light mode, and stores the visitor's preference in `localStorage`. The toggle lives in the sticky navigation.
-
-## Mobile Navigation
-
-The header keeps About, Skills, Projects, Services, and Contact visible on every screen size. Desktop shows the links across the top bar, while mobile uses a fixed floating two-line header with compact pill links that stay available while scrolling.
+Open `http://localhost:3000`.
 
 ## Production Build
 
 ```bash
+npm run typecheck
+npm run lint
 npm run build
 npm run start
 ```
 
-## Deploy on Vercel
+## Vercel Deployment
 
 1. Push this repository to GitHub, GitLab, or Bitbucket.
-2. Create a new project in Vercel and import the repository.
-3. Keep the default Next.js build settings.
-4. Deploy, then update `metadataBase` and social URLs in `app/layout.tsx` to match your live domain.
+2. Import the repository in Vercel.
+3. Keep the default framework preset as **Next.js**.
+4. Use the default build command: `npm run build`.
+5. Use the default output directory managed by Next.js.
+6. Deploy.
+7. After deployment, update `siteConfig.url` in `lib/data.ts` to your production domain.
+8. Replace placeholder profile/project links with your real GitHub, LinkedIn, email, live demos, and repository URLs.
+
+## Environment Variables
+
+No environment variables are required for the current static portfolio.
+
+If you connect the contact form to an email service or API route later, add provider-specific variables such as:
+
+```bash
+RESEND_API_KEY=
+CONTACT_TO_EMAIL=
+```
+
+Then configure those values in Vercel under **Project Settings → Environment Variables**.
 
 ## Customization Checklist
 
-- Replace `Your Name` with your real name.
-- Replace `public/profile-placeholder.svg` with your portrait.
-- Update GitHub, LinkedIn, email, project links, and demo URLs.
-- Replace project previews in `public/projects` if you have real screenshots.
-- Connect the contact form to an email service, CRM, or API route before launch.
+- Replace `Your Name` in `lib/data.ts` with your actual name.
+- Update `siteConfig.email`, `siteConfig.github`, `siteConfig.linkedin`, and `siteConfig.url`.
+- Replace `public/profile-placeholder.svg` with a high-resolution portrait.
+- Replace project placeholders in `public/projects/` with real product screenshots.
+- Update `projects`, `services`, and `buildingNow` in `lib/data.ts` with real work and current priorities.
+- Connect `components/contact-form.tsx` to your preferred backend, CRM, or email provider before launch.
