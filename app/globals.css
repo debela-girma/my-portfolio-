@@ -3,13 +3,9 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
-  --background: #f7fafc;
-  --foreground: #0f172a;
-}
-
-:root.dark {
   color-scheme: dark;
+  --font-inter: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-space-grotesk: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
   --background: #05070d;
   --foreground: #f8fafc;
 }
@@ -28,22 +24,28 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 16% 8%, rgba(14, 165, 233, 0.16), transparent 30rem),
-    radial-gradient(circle at 85% 3%, rgba(168, 85, 247, 0.13), transparent 28rem),
-    linear-gradient(180deg, #f8fafc 0%, #eef7ff 42%, #ffffff 100%);
-  color: var(--foreground);
-}
-
-:root.dark body {
-  background:
-    radial-gradient(circle at 20% 10%, rgba(14, 165, 233, 0.16), transparent 30rem),
-    radial-gradient(circle at 80% 0%, rgba(168, 85, 247, 0.12), transparent 28rem),
+    radial-gradient(circle at 18% 8%, rgba(14, 165, 233, 0.18), transparent 30rem),
+    radial-gradient(circle at 84% 0%, rgba(168, 85, 247, 0.14), transparent 32rem),
+    radial-gradient(circle at 55% 50%, rgba(79, 70, 229, 0.08), transparent 34rem),
     #05070d;
+  color: var(--foreground);
+  text-rendering: geometricPrecision;
 }
 
 ::selection {
-  background: rgba(56, 189, 248, 0.35);
+  background: rgba(125, 211, 252, 0.35);
   color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @layer utilities {
@@ -52,29 +54,17 @@ body {
   }
 
   .glass-panel {
-    border: 1px solid rgba(15, 23, 42, 0.1);
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(241, 245, 249, 0.66));
-    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
-    backdrop-filter: blur(18px);
-  }
-
-  :root.dark .glass-panel {
-    border-color: rgba(148, 163, 184, 0.18);
-    background: linear-gradient(145deg, rgba(15, 23, 42, 0.78), rgba(2, 6, 23, 0.54));
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(145deg, rgba(15, 23, 42, 0.74), rgba(2, 6, 23, 0.52));
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
   }
 
   .animated-grid {
     background-image:
-      linear-gradient(rgba(15, 23, 42, 0.07) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15, 23, 42, 0.07) 1px, transparent 1px);
-    background-size: 56px 56px;
-    mask-image: radial-gradient(circle at 50% 30%, black, transparent 72%);
-  }
-
-  :root.dark .animated-grid {
-    background-image:
       linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
       linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(circle at 50% 30%, black, transparent 74%);
   }
 }
