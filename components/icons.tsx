@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { ReactElement, SVGProps } from "react";
 
 export type IconName =
   | "arrow-up-right"
@@ -19,7 +19,7 @@ type IconProps = SVGProps<SVGSVGElement> & {
   name: IconName;
 };
 
-const paths: Record<IconName, JSX.Element> = {
+const paths: Record<IconName, ReactElement> = {
   "arrow-up-right": <path d="M7 17 17 7M8 7h9v9" />,
   "badge-check": <path d="M8.5 12.5 11 15l4.5-5M12 3l2 1.7 2.6-.2 1 2.4 2.2 1.4-.7 2.5.7 2.5-2.2 1.4-1 2.4-2.6-.2L12 21l-2-1.7-2.6.2-1-2.4-2.2-1.4.7-2.5-.7-2.5 2.2-1.4 1-2.4 2.6.2L12 3Z" />,
   braces: <path d="M8 3H7a3 3 0 0 0-3 3v3a2 2 0 0 1-2 2 2 2 0 0 1 2 2v3a3 3 0 0 0 3 3h1M16 3h1a3 3 0 0 1 3 3v3a2 2 0 0 0 2 2 2 2 0 0 0-2 2v3a3 3 0 0 1-3 3h-1" />,

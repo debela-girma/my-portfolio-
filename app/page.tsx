@@ -65,10 +65,10 @@ function About() {
           </div>
           <div className="space-y-6 text-lg leading-9 text-slate-300">
             <p>
-              My foundation starts close to the metal with C++, where precision and problem decomposition matter. Java strengthened the way I think about OOP, maintainable architecture, and explicit contracts. MySQL taught me that product reliability often begins with clear data models.
+              My foundation starts with the web fundamentals that every useful product depends on: HTML for structure, CSS for clarity and polish, and JavaScript for interaction, logic, and product behavior. Node.js gives me the backend layer to turn interfaces into real workflows.
             </p>
             <p>
-              Today, I bring those fundamentals into full-stack development: modern web interfaces, API-driven workflows, database-backed systems, and launch-ready experiences. I am not interested in decorative code. I want to build useful products that reduce friction, clarify decisions, and create measurable value.
+              Today, I bring those fundamentals into full-stack development: modern web interfaces, API-driven workflows, Node.js services, and launch-ready experiences. I am not interested in decorative code. I want to build useful products that reduce friction, clarify decisions, and create measurable value.
             </p>
             <p>
               The direction is intentional: keep learning, keep shipping, and compound technical competence into the product instincts required to build companies.
@@ -86,7 +86,7 @@ function About() {
             </div>
           </div>
           <div className="grid gap-4">
-            {["C++ problem-solving foundation", "Java OOP architecture", "MySQL database design", "Full-stack product delivery"].map((item) => (
+            {["HTML structure that supports usability", "CSS systems with premium visual polish", "JavaScript product logic", "Node.js backend workflows"].map((item) => (
               <div key={item} className="rounded-3xl border border-white/10 bg-white/[0.04] p-5 transition duration-300 hover:border-sky-300/40 hover:bg-sky-300/10">
                 <div className="mb-3 h-1.5 w-12 rounded-full bg-gradient-to-r from-sky-300 to-violet-300" />
                 <p className="font-semibold text-white">{item}</p>

@@ -10,16 +10,17 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`
   },
   description:
-    "Premium founder-style portfolio for a product-minded software engineer building scalable web applications, APIs, databases, and MVPs.",
+    "Premium founder-style portfolio for a product-minded software engineer building scalable web applications, Node.js APIs, and MVPs.",
   keywords: [
     "software engineer portfolio",
     "startup founder portfolio",
     "Next.js developer",
-    "TypeScript developer",
+    "JavaScript developer",
+    "Node.js developer",
     "full-stack developer",
     "MVP development",
     "API development",
-    "database architecture"
+    "Node.js backend development"
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — Software Engineer & Builder`,
-    description: "Scalable digital products, APIs, database architecture, and MVP development for founders and businesses.",
+    description: "Scalable digital products, Node.js APIs, and MVP development for founders and businesses.",
     images: ["/profile-placeholder.svg"]
   },
   robots: {

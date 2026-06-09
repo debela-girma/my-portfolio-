@@ -77,7 +77,7 @@ export const trustMetrics: TrustMetric[] = [
     label: "Years Learning",
     value: 4,
     suffix: "+",
-    description: "Compound learning through C++, Java, databases, and modern web engineering."
+    description: "Compound learning through HTML, CSS, JavaScript, Node.js, and modern web engineering."
   },
   {
     label: "Problem-Solving Focus",
@@ -90,8 +90,8 @@ export const trustMetrics: TrustMetric[] = [
 export const skillCategories: SkillCategory[] = [
   {
     title: "Languages",
-    summary: "Foundational programming range for disciplined problem solving and maintainable product code.",
-    skills: ["C++", "Java", "TypeScript", "JavaScript"],
+    summary: "Core web language foundations for building clear interfaces and reliable product experiences.",
+    skills: ["HTML", "CSS", "JavaScript", "Responsive UI"],
     accent: "from-sky-400 to-cyan-300"
   },
   {
@@ -102,8 +102,8 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: "Backend",
-    summary: "Clear data flows, reliable API contracts, and system decisions that leave room for scale.",
-    skills: ["APIs", "Databases", "System Design", "MySQL"],
+    summary: "Node.js server logic, clean API contracts, and backend decisions that leave room for scale.",
+    skills: ["Node.js", "Express.js", "REST APIs", "Backend Logic"],
     accent: "from-emerald-400 to-teal-300"
   },
   {
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     challenge: "Operators were making decisions from scattered spreadsheets and delayed reporting loops.",
     solution: "Designed a secure dashboard with KPI cards, role-aware views, and export-ready reporting flows.",
     outcome: "Created a single source of truth that makes the next decision visible within seconds.",
-    stack: ["Next.js", "TypeScript", "MySQL", "Tailwind"],
+    stack: ["HTML", "CSS", "JavaScript", "Tailwind"],
     image: "/projects/dashboard.svg",
     github: "https://github.com/yourname/client-operations-dashboard",
     demo: "https://client-operations-demo.vercel.app"
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     challenge: "A service business needed predictable booking logic without manual coordination overhead.",
     solution: "Built an API-backed scheduling flow with availability rules, transactional records, and clean confirmations.",
     outcome: "Reduced operational friction and gave customers a clearer path from interest to booking.",
-    stack: ["Java", "REST API", "MySQL", "React"],
+    stack: ["Node.js", "Express.js", "REST API", "JavaScript"],
     image: "/projects/booking.svg",
     github: "https://github.com/yourname/api-booking-platform",
     demo: "https://booking-platform-demo.vercel.app"
@@ -143,7 +143,7 @@ export const projects: Project[] = [
     challenge: "Early-stage product ideas needed credible marketing pages before the product was fully mature.",
     solution: "Created a reusable landing system with modular sections, animated proof points, and fast deployment defaults.",
     outcome: "Helped validate positioning quickly while preserving a polished brand experience.",
-    stack: ["Next.js", "Framer Motion", "TypeScript", "Vercel"],
+    stack: ["Next.js", "JavaScript", "Framer Motion", "Vercel"],
     image: "/projects/saas.svg",
     github: "https://github.com/yourname/saas-landing-system",
     demo: "https://saas-landing-system.vercel.app"
@@ -164,10 +164,10 @@ export const services: Service[] = [
     icon: "api"
   },
   {
-    title: "Database Architecture",
-    description: "MySQL schema design, relationships, indexing, and query patterns built for clarity and growth.",
-    outcome: "Give the product a data foundation that stays understandable over time.",
-    icon: "database"
+    title: "Node.js Backend Architecture",
+    description: "Node.js service structure, route design, API boundaries, and backend workflows built for clarity and growth.",
+    outcome: "Give the product a backend foundation that stays understandable over time.",
+    icon: "api"
   },
   {
     title: "Frontend Engineering",
@@ -187,7 +187,7 @@ export const buildingNow: BuildNowItem[] = [
   {
     label: "Learning",
     title: "Systems that scale from simple foundations",
-    description: "Deepening backend architecture, API design, and database performance so early products do not inherit avoidable complexity."
+    description: "Deepening Node.js backend architecture, API design, and server-side patterns so early products do not inherit avoidable complexity."
   },
   {
     label: "Side Projects",
