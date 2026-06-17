@@ -9,7 +9,7 @@ import { MagneticButton } from "@/components/magnetic-button";
 import { siteConfig } from "@/lib/data";
 
 const roles = ["Developer", "Builder", "Future Founder"];
-const profileImage = "/profile-placeholder.svg";
+const profileImage = "C:/Users/debela.ELCHAPO/Desktop/my-portfolio--main (1)/my-portfolio--main/public/prof.jpg";
 
 const container: Variants = {
   hidden: { opacity: 0 },
