@@ -9,7 +9,7 @@ import { MagneticButton } from "@/components/magnetic-button";
 import { siteConfig } from "@/lib/data";
 
 const roles = ["Developer", "Builder", "Future Founder"];
-const profileImage = "C:/Users/debela.ELCHAPO/Desktop/my-portfolio--main (1)/my-portfolio--main/public/prof.jpg";
+const profileImage = "/prof.JPG";
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -53,7 +53,7 @@ export function Hero() {
         animate="visible"
       >
         <div>
-          <motion.p variants={item} className="inline-flex items-center gap-2 rounded-full border border-emerald-300/30 bg-emerald-300/10 px-4 py-2 text-sm font-semibold text-emerald-100 shadow-[0_0_40px_rgba(52,211,153,0.14)]">
+          <motion.p variants={item} className="inline-flex items-center gap-2 rounded-full border border-emerald-300/30 bg-emerald-300/10 px-4 py-2 text-sm font-semibold text-emerald-100 shadow-[0_0_1rem_0_rgba_16_185_129_0.25]">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-300" />
@@ -97,7 +97,7 @@ export function Hero() {
           <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-sky-300/25 via-violet-300/15 to-transparent blur-2xl" aria-hidden="true" />
           <div className="glass-panel relative overflow-hidden rounded-[2rem] p-3">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950/80">
-              <Image src={profileImage} alt="Professional portrait placeholder" fill priority sizes="(min-width: 1024px) 33rem, 90vw" className="object-cover opacity-90 transition duration-700 hover:scale-105" />
+              <Image src={profileImage} alt="Professional portrait" fill priority sizes="(min-width: 1024px) 33rem, 90vw" className="object-cover opacity-90 transition duration-700 hover:opacity-100" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-200">Founder-grade portfolio</p>
@@ -140,7 +140,7 @@ function RotatingRole() {
 
 function SocialLink({ href, label, icon }: { href: string; label: string; icon: "github" | "linkedin" | "mail" }) {
   return (
-    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 transition hover:border-sky-300/40 hover:bg-sky-300/10 hover:text-white">
+    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} className="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1.5 transition hover:border-white/40 hover:text-white">
       <Icon name={icon} className="h-4 w-4" />
       {label}
     </a>
